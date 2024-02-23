@@ -4,17 +4,49 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <style>
+      .loader {
+        position: relative;
+        margin: 0 auto;
+        width: 100px;
+        height: 100px;
+      }
+
+      .loader:before , .loader:after{
+        content: '';
+        border-radius: 50%;
+        position: absolute;
+        inset: 0;
+        box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.3) inset;
+      }
+      .loader:after {
+        box-shadow: 0 2px 0 #FF3D00 inset;
+        animation: rotate 2s linear infinite;
+      }
+
+      @keyframes rotate {
+        0% {  transform: rotate(0)}
+        100% { transform: rotate(360deg)}
+      }
+      .breed-select {
+        margin: 10px;
+      }
+      .cat-info {
+         display: flex;
+         justify-content: space-between;
+         align-items: center;
+      }
       .error {
         display: none;
       }
-      .hidden {
-        display: inline;
+      img{
+        width: 250px;
+        margin: 10px;
       }
     </style>
     <title>Homework 10</title>
   </head>
   <body>
-    <select class="breed-select"></select>
+    <select id="single" class="breed-select"></select>
     <p class="loader">Loading data, please wait...</p>
     <p class="error">Oops! Something went wrong! Try reloading the page!</p>
     <div class="cat-info"></div>
